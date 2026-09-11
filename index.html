@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Syed Mohammad Huzaifa</title>
+<style>
+  :root {
+    --paper: #f7f4ee;
+    --ink: #1c1a16;
+    --ink-soft: #57524a;
+    --rule: #d8d2c4;
+    --accent: #a8461f;
+    --table-line: #c9c2b0;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: Georgia, "Iowan Old Style", "Palatino Linotype", Charter, serif;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+  code, .mono, nav, .meta, .status, .table-label, footer {
+    font-family: "IBM Plex Mono", "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+  header { border-bottom: 3px solid var(--ink); padding: 22px 0 16px; }
+  nav.wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 10px 22px;
+    font-size: 0.85rem;
+  }
+  nav a { color: var(--ink); text-decoration: none; }
+  nav a:hover { color: var(--accent); }
+  nav .who { font-weight: 700; letter-spacing: -0.02em; }
+  nav .navlinks { display: flex; gap: 18px; flex-wrap: wrap; }
+  nav .navlinks span.sep { color: var(--rule); }
+
+  .status {
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    padding: 10px 0 0;
+  }
+  .status::before { content: "> "; color: var(--accent); }
+
+  main.wrap { padding-top: 40px; }
+
+  h1 {
+    font-family: Georgia, serif;
+    font-size: 2.1rem;
+    line-height: 1.2;
+    margin: 0 0 14px;
+    letter-spacing: -0.01em;
+  }
+  .lede {
+    color: var(--ink-soft);
+    font-size: 1.08rem;
+    max-width: 54ch;
+    margin: 0 0 36px;
+  }
+
+  section { padding: 46px 0; border-top: 1px solid var(--rule); }
+  section:first-of-type { border-top: none; padding-top: 0; }
+
+  .section-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin: 0 0 22px;
+  }
+
+  h2.case-title {
+    font-family: Georgia, serif;
+    font-size: 1.5rem;
+    margin: 0 0 4px;
+  }
+  .case-meta {
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    margin-bottom: 26px;
+  }
+
+  h3.beat {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin: 26px 0 10px;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+  h3.beat .num {
+    font-family: "IBM Plex Mono", monospace;
+    color: var(--accent);
+    font-size: 0.85rem;
+  }
+  .beat-body p { margin: 0 0 10px; }
+  .beat-body ul { margin: 0 0 10px; padding-left: 20px; }
+  .beat-body li { margin-bottom: 7px; }
+
+  table.results {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 18px 0 22px;
+    font-size: 0.85rem;
+  }
+  table.results caption {
+    text-align: left;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-soft);
+    margin-bottom: 8px;
+  }
+  table.results th, table.results td {
+    text-align: left;
+    padding: 7px 12px 7px 0;
+    border-bottom: 1px solid var(--table-line);
+  }
+  table.results th {
+    font-weight: 700;
+    color: var(--ink-soft);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  table.results td.num { font-family: "IBM Plex Mono", monospace; }
+  table.results tr:last-child td { border-bottom: none; }
+
+  .callout {
+    border-left: 3px solid var(--accent);
+    padding: 4px 0 4px 16px;
+    margin: 20px 0 0;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+  }
+  .callout strong { color: var(--ink); }
+
+  .about-text { max-width: 58ch; }
+
+  footer {
+    border-top: 3px solid var(--ink);
+    padding: 24px 0 60px;
+    margin-top: 10px;
+  }
+  footer .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+  }
+  footer a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px dotted var(--rule); }
+  footer a:hover { color: var(--accent); border-color: var(--accent); }
+  footer .flinks { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+  .verified {
+    color: var(--accent);
+  }
+  .fillin { background: #f3d9c9; padding: 0 3px; }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a href="#top" class="who">S. M. Huzaifa</a>
+    <div class="navlinks">
+      <a href="#work">work</a><span class="sep">/</span>
+      <a href="#about">about</a><span class="sep">/</span>
+      <a href="mailto:mohammadhuzaifa699@gmail.com">email</a><span class="sep">/</span>
+      <a href="https://www.linkedin.com/in/syed-mohammad-huzaifa/">linkedin</a><span class="sep">/</span>
+      <a href="resume.pdf">resume</a>
+    </div>
+  </nav>
+</header>
+
+<main class="wrap" id="top">
+
+  <h1>I check whether the model actually earns its keep before I recommend it.</h1>
+  <p class="lede">BSCS (Artificial Intelligence), NED University. Most recent work: a click-decay scoring system for FlyRank, where the honest answer turned out to be that the simple rule held its own against four trained models.</p>
+  <p class="status">reachable by <a href="mailto:mohammadhuzaifa699@gmail.com">email</a> · resume below</p>
+
+  <section id="work">
+    <p class="section-label">01 — case study</p>
+
+    <h2 class="case-title">Click-decay scoring for FlyRank</h2>
+    <p class="case-meta">FlyRank ML Internship — Lane 4, CTR / Engagement Opportunity Scoring</p>
+
+    <h3 class="beat"><span class="num">§1</span> the problem</h3>
+    <div class="beat-body">
+      <p>FlyRank tracks 11,119 pages across 28 clients. Reviewing all of them by hand to catch underperformers would take about eleven years. Some pages keep their search rank but still lose clicks compared with other pages getting the same exposure — a decline nobody notices because the rank never moves. The task: find those pages without a human reading through all 11,119.</p>
+    </div>
+
+    <h3 class="beat"><span class="num">§2</span> what I did</h3>
+    <div class="beat-body">
+      <ul>
+        <li>Built a baseline first, not a model: a hand-written rule that ranks each page against the median click-through rate of pages with similar impression volume, scores the shortfall, and weights it by log impression volume.</li>
+        <li>Tested four learned models against that rule — logistic regression, a depth-3 decision tree, random forest, gradient boosting — instead of assuming a model would win by default.</li>
+        <li>Validated with client-grouped 5-fold cross-validation on 8,825 pseudonymized pages and 44 features, instead of random splits. Random splits underestimated uncertainty by 1.9× to 2.8×, so the weaker statistical power was the honest trade to make.</li>
+        <li>Dropped 90-day CTR aggregates overlapping the outcome window and excluded outcome/production flags, so the model couldn't see the answer before making the call.</li>
+      </ul>
+    </div>
+
+    <h3 class="beat"><span class="num">§3</span> what came of it</h3>
+    <div class="beat-body">
+      <table class="results">
+        <caption>rule vs. best model, at the cutoffs that matter</caption>
+        <tr><th>metric</th><th>rule</th><th>best model</th></tr>
+        <tr><td>precision@10</td><td class="num">1.000</td><td class="num">0.900</td></tr>
+        <tr><td>precision@50</td><td class="num">0.920</td><td class="num">0.920</td></tr>
+        <tr><td>AUC</td><td class="num">0.803</td><td class="num">0.837 (logistic)</td></tr>
+      </table>
+      <ul>
+        <li>Zero of four models beat the rule at K=50. Left alone, the depth-3 tree re-derived the rule's own logic.</li>
+        <li>Where the models earned their place: reaching 44 of 6,053 low-volume pages the rule structurally couldn't see — it flagged zero of them.</li>
+        <li>42% of flagged pages recover on their own within 30 days, no fix applied — which is why this project attaches no value estimate to any fix.</li>
+      </ul>
+      <p class="callout"><strong>Directional, not decisive:</strong> rule and model are statistically indistinguishable on precision. The model's real value is reach into low-volume pages. The 42% baseline recovery rate means this is a triage tool, not a fix-and-measure pipeline.</p>
+    </div>
+  </section>
+
+  <section id="about">
+    <p class="section-label">02 — about</p>
+    <p class="about-text">BSCS (AI) student at NED University, Karachi. Built a click-decay scoring pipeline for FlyRank's ML Internship: a rule-plus-model system that flags underperforming pages across 11,000+ URLs without manual review, and tested four models against a hand-written baseline instead of assuming a model would win. Interested in evaluation methodology — where a model has to earn its place over a baseline, not just exist.</p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>&copy; 2026 S. M. Huzaifa</div>
+    <div class="flinks">
+      <a href="mailto:mohammadhuzaifa699@gmail.com">email</a>
+      <a href="https://www.linkedin.com/in/syed-mohammad-huzaifa/">linkedin</a>
+      <a href="resume.pdf">resume</a>
+      <a href="https://internship.flyrank.ai/verify/FR-D11-B376D-2F18E?first_name=Syed" class="verified">✓ FlyRank AI Fluency — verified</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
