@@ -144,6 +144,14 @@
   }
   .callout strong { color: var(--ink); }
 
+  .project { padding: 0 0 26px; margin-bottom: 26px; border-bottom: 1px dotted var(--rule); }
+  .project:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .project h3 { font-family: Georgia, serif; font-size: 1.15rem; margin: 0 0 2px; }
+  .project .meta { font-size: 0.78rem; color: var(--ink-soft); margin: 0 0 8px; }
+  .project p { margin: 0 0 8px; }
+  .project .links { font-family: "IBM Plex Mono", monospace; font-size: 0.8rem; display: flex; gap: 16px; flex-wrap: wrap; }
+  .project .links a, .beat-body a, .lede a { color: var(--accent); text-decoration: none; border-bottom: 1px dotted var(--accent); }
+
   .about-text { max-width: 58ch; }
 
   footer {
@@ -176,6 +184,8 @@
     <a href="#top" class="who">S. M. Huzaifa</a>
     <div class="navlinks">
       <a href="#work">work</a><span class="sep">/</span>
+      <a href="#projects">projects</a><span class="sep">/</span>
+      <a href="https://github.com/huzaifaguru">github</a><span class="sep">/</span>
       <a href="#about">about</a><span class="sep">/</span>
       <a href="mailto:mohammadhuzaifa699@gmail.com">email</a><span class="sep">/</span>
       <a href="https://www.linkedin.com/in/syed-mohammad-huzaifa/">linkedin</a><span class="sep">/</span>
@@ -187,7 +197,7 @@
 <main class="wrap" id="top">
 
   <h1>I check whether the model actually earns its keep before I recommend it.</h1>
-  <p class="lede">BSCS (Artificial Intelligence), NED University. Most recent work: a click-decay scoring system for FlyRank, where the honest answer turned out to be that the simple rule held its own against four trained models.</p>
+  <p class="lede">BSCS (Artificial Intelligence), NED University. I build ML systems end to end, from fraud detection on IBM LinuxONE to football forecasting tested against the bookmakers. Below: my FlyRank internship case study, then <a href="#projects">the rest of my projects</a>.</p>
   <p class="status">reachable by <a href="mailto:mohammadhuzaifa699@gmail.com">email</a> · resume below</p>
 
   <section id="work">
@@ -229,9 +239,78 @@
     </div>
   </section>
 
+  <section id="projects">
+    <p class="section-label">02 — selected projects</p>
+
+    <div class="project">
+      <h3>IronShield: real-time fraud &amp; mule-account detection</h3>
+      <p class="meta">IBM Z Datathon 2026 · team lead · XGBoost · TreeSHAP · LinuxONE (s390x)</p>
+      <p>Scores every payment before the money moves, flags mule rings from a live transaction graph, and explains each alert in plain English. Account IDs are pseudonymized with HMAC-SHA256 before analysis. On a time-ordered held-out split: 96.3% precision, 92.1% recall, 19/19 mule rings caught, 0.087 ms median decision time. The data is synthetic, so these numbers show the system works end to end. They aren't a real-bank result.</p>
+      <p class="links"><a href="https://github.com/huzaifaguru/ironshield">code</a><a href="https://youtu.be/wgZrbunfb3k">demo video</a></p>
+    </div>
+
+    <div class="project">
+      <h3>Premier League match outcome predictor</h3>
+      <p class="meta">Python · XGBoost · Dixon-Coles · walk-forward CV · Streamlit</p>
+      <p>Models from logistic regression to a time-decayed Dixon-Coles goals model, trained on 26 seasons and tested once on 1,140 held-out matches against the bookmakers' own forecast. The best model reaches log loss 0.976 against the bookmaker's 0.966, a statistically clear gap, so no model is as accurate as the professional forecast. An Elo-only model comes within 0.006 of the full 65-input model.</p>
+      <p class="links"><a href="https://github.com/huzaifaguru/premier-league-match-predictor">code</a><a href="https://premier-league-match-predictor-b.streamlit.app/">live app</a></p>
+    </div>
+
+    <div class="project">
+      <h3>Supreme Court of Pakistan judgment analytics</h3>
+      <p class="meta">Python · pdfplumber · Pandas · scikit-learn</p>
+      <p>Turned ~1,200 raw judgment PDFs into a 25-field table using hand-written regex extraction. Auditing my first pass showed its 94% accuracy just reflected the majority class, so I rebuilt everything after extraction: proper deduplication (1,189 rows down to 1,041 cases), no fake "unknown" labels, and a classifier measured against a majority-class baseline. Includes an interactive dashboard and a similar-case search.</p>
+      <p class="links"><a href="https://github.com/huzaifaguru/pk-judgment-analytics">code</a><a href="https://huzaifaguru.github.io/pk-judgment-analytics/">live dashboard</a></p>
+    </div>
+
+    <div class="project">
+      <h3>Formal verification of a neural network</h3>
+      <p class="meta">CT-354 Machine Learning, NED · 3-person team · PyTorch · PuLP/CBC MILP</p>
+      <p>Implemented the SHERLOCK algorithm (Dutta et al., 2018) to prove guaranteed output bounds for a ReLU network predicting CO concentration on the UCI Air Quality dataset. It combines gradient-based local search with an exact MILP solve, which gives a mathematical certificate instead of an error bar.</p>
+      <p class="links"><a href="https://github.com/huzaifaguru/nn-verification-airquality">code</a><a href="https://huzaifaguru.github.io/nn-verification-airquality/">write-up</a></p>
+    </div>
+
+    <div class="project">
+      <h3>ShiftLens: CCTV as a safety officer</h3>
+      <p class="meta">AMD Developer Hackathon · Gemma 3 vision · vLLM · ROCm on AMD Instinct MI300X</p>
+      <p>Checks sampled CCTV frames against a site's own written safety procedures, groups the hits into timestamped incidents, and writes an incident report with corrective actions. The model can only cite rule IDs that exist in the uploaded SOP. No new hardware, training or labelled data needed.</p>
+      <p class="links"><a href="https://github.com/huzaifaguru/shiftlens">code</a></p>
+    </div>
+
+    <div class="project">
+      <h3>Feed ranking: heap vs. sorting</h3>
+      <p class="meta">CT-363 Design &amp; Analysis of Algorithms, NED · 3-person team · Python · heapq · Matplotlib</p>
+      <p>Simulates engagement-based feed ranking and benchmarks a max-heap priority queue against merge, quick and insertion sort from 100 to 100,000 posts. The question was whether a feed needs a full sort or just the top K posts. Includes an interactive sorting visualizer.</p>
+      <p class="links"><a href="https://github.com/huzaifaguru/feed-ranking-simulator">code</a><a href="https://huzaifaguru.github.io/feed-ranking-simulator/">write-up</a></p>
+    </div>
+
+    <div class="project">
+      <h3>NED attendance tracker</h3>
+      <p class="meta">TypeScript · runs fully in the browser</p>
+      <p>Upload the portal's attendance PDF and see how many classes and labs you can still miss per course while staying above NED's 65% / 75% rules. The PDF never leaves the browser and there's no backend.</p>
+      <p class="links"><a href="https://github.com/huzaifaguru/ned-attendance-tracker">code</a><a href="https://huzaifaguru.github.io/ned-attendance-tracker/">live app</a></p>
+    </div>
+
+    <div class="project">
+      <h3>Nova: AI study chatbot</h3>
+      <p class="meta">Flask · Google Gemini · Server-Sent Events</p>
+      <p>A study and coding assistant with streamed replies, a structured system prompt, saved chats, voice input and output, rate limiting and CI. The API key stays on the backend.</p>
+      <p class="links"><a href="https://github.com/huzaifaguru/AI-chatbot">code</a><a href="https://drive.google.com/file/d/1TR9DkvgVbHYPbYwJ2CjcitE_CSMoFpld/view?usp=drive_link">demo video</a></p>
+    </div>
+
+    <div class="project">
+      <h3>ECHO: quantum mystery investigation</h3>
+      <p class="meta">Entangled Minds Quantathon, NED · Qiskit</p>
+      <p>Used Qiskit simulations to test whether an "experiment" sent a message faster than light through entanglement. It didn't: each side alone always sees 50/50, and teleportation fails without classical bits.</p>
+      <p class="links"><a href="https://github.com/huzaifaguru/echo-quantathon">code</a></p>
+    </div>
+
+    <p class="status">everything else is on <a href="https://github.com/huzaifaguru">github</a></p>
+  </section>
+
   <section id="about">
-    <p class="section-label">02 — about</p>
-    <p class="about-text">BSCS (AI) student at NED University, Karachi. Built a click-decay scoring pipeline for FlyRank's ML Internship: a rule-plus-model system that flags underperforming pages across 11,000+ URLs without manual review, and tested four models against a hand-written baseline instead of assuming a model would win. Interested in evaluation methodology — where a model has to earn its place over a baseline, not just exist.</p>
+    <p class="section-label">03 — about</p>
+    <p class="about-text">BSCS (AI) student at NED University, Karachi, and former ML intern at FlyRank. I've built fraud detection on IBM LinuxONE, a football forecaster benchmarked against bookmakers, a legal-document pipeline from raw PDFs, and formal verification for a neural network. What ties them together is evaluation: a model has to earn its place over a baseline, and I report it when it doesn't.</p>
   </section>
 
 </main>
